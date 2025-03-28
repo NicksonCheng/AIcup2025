@@ -39,11 +39,11 @@ print(f"載入模型: {model_path}")
 
 # 4. 載入最佳閾值
 print("載入最佳閾值...")
-'''
+
 with open(threshold_path, 'r') as f:
     THRESHOLD = float(f.read())
-'''
-THRESHOLD = 0.3
+
+#THRESHOLD = 0.35
 print(f"使用閾值: {THRESHOLD}")
 
 # 5. 進行預測
@@ -58,7 +58,7 @@ output_df = pd.DataFrame({
     '飆股': test_preds
 })
 
-output_file = os.path.join(output_dir, "submission.csv")
+output_file = os.path.join(output_dir, "submission_BT.csv")
 output_df.to_csv(output_file, index=False)
 print(f"預測結果已儲存至: {output_file}")
 

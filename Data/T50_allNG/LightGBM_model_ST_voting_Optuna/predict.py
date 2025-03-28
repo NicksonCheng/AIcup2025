@@ -37,7 +37,7 @@ with open(model_path, 'rb') as f:
 print(f"載入模型: {model_path}")
 
 # 4. 設定閾值
-THRESHOLD = 0.04  # 使用貝葉斯優化中固定的閾值
+THRESHOLD = 0.1  # 使用貝葉斯優化中固定的閾值
 print(f"使用閾值: {THRESHOLD}")
 
 # 5. 進行預測
@@ -53,7 +53,7 @@ output_df = pd.DataFrame({
     '飆股': test_preds
 })
 
-output_file = os.path.join(output_dir, "submission_optuna.csv")
+output_file = os.path.join(output_dir, "submission_optuna_test.csv")
 output_df.to_csv(output_file, index=False)
 print(f"預測結果已儲存至: {output_file}")
 

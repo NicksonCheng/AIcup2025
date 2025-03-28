@@ -6,8 +6,8 @@ import os
 
 # 檔案路徑
 test_file = "/home/r1419r1419/Stock_Competition/Data/T50_allNG/selected_public_x8.csv"
-model_dir = "/home/r1419r1419/Stock_Competition/Data/T50_allNG/LightGBM_model_RE"
-output_dir = "/home/r1419r1419/Stock_Competition/Data/T50_allNG/LightGBM_model_RE"
+model_dir = "/home/r1419r1419/Stock_Competition/Data/T50_allNG/LightGBM_model_ST_14000_150"
+output_dir = "/home/r1419r1419/Stock_Competition/Data/T50_allNG/LightGBM_model_ST_14000_150"
 scaler_path = os.path.join(model_dir, "minmax_scaler.pkl")
 model_path = os.path.join(model_dir, "lightgbm_model.pkl")
 threshold_path = os.path.join(model_dir, "best_threshold.txt")
@@ -39,11 +39,10 @@ print(f"載入模型: {model_path}")
 
 # 4. 載入最佳閾值
 print("載入最佳閾值...")
-'''
+
 with open(threshold_path, 'r') as f:
     THRESHOLD = float(f.read())
-'''
-THRESHOLD = 0.42
+#THRESHOLD = 0.5
 print(f"使用閾值: {THRESHOLD}")
 
 # 5. 進行預測
