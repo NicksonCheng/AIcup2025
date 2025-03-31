@@ -13,7 +13,7 @@
 
 ### 檔案內容
 1. ** catboost_classifier_gpu_model.py **:
-   - ** 使用 GPU 進行 optuna 選參，218個features單次 trail 須跑3~4分鐘；depth=10的情況下，VRAM約為6G，以下為當前最好三組參數。可進一步把depth加深。
+   - ** 使用 GPU 進行 optuna 選參，218個features單次 trail 須跑3~4分鐘；depth=10的情況下，VRAM約為6G，以下為當前最好三組參數。正樣本約為80~100，可進一步把depth加深。
    - 0.9827961505953834 - {'learning_rate': 0.19985445314053876, 'depth': 10, 'l2_leaf_reg': 1.1912568427873744}
    - 0.9825979796769116 - {'learning_rate': 0.13729598218654218, 'depth': 10, 'l2_leaf_reg': 1.3600113909655966}
    - 0.9819134704647062 - {'learning_rate': 0.08457584692887682, 'depth': 10, 'l2_leaf_reg': 1.9359795254566103}
