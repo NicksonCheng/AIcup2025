@@ -27,11 +27,11 @@ Recall =\cfrac{TP}{TP+FN}
    - 預測結果：Precision 0.9512 , Recall 0.4432
    - 預測正樣本約錯4個，可容許範圍內。下一步可結合其他模型增加預測正樣本數，或是篩選出FP。
 
-2.  **使用Classifier(Catboost,LGBMBoost,XGBoost)個別預測取交集，預測68個正樣本**
+2.  **使用Classifier(Catboost,LGBMBoost,XGBoost)個別預測取聯集，預測68個正樣本**
    - 預測結果：Precision 1 , Recall 0.3864
    - 預測正樣本全對，可以針對此結果進一步加強最後模型權重。
      
-3.  **上一個方法取聯集，預測113個正樣本**
+3.  **上一個方法取交集，預測113個正樣本**
    - 預測結果：Precision 0.9558 , Recall 0.6136
    - 預測正樣本約錯5個，LGBM(98)與 XGB(95)預測比 Catboost更精準，且有微小差異性(相較1.都再多抓1X個）。可 以此為基準，繼續增加差異性(個別擅長範圍)，或用其他方法抓更多正樣本做篩選。
      
