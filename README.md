@@ -15,16 +15,25 @@
 1. **catboost_classifier_gpu_model.py**:
    - 使用 GPU 進行 optuna 選參，218個features 單次 trail 須跑3~4分鐘；depth=10的情況下，VRAM約為6G，以下為當前最好三組參數。預測正樣本約為80-100。
    - 0.9827961505953834 - {'learning_rate': 0.19985445314053876, 'depth': 10, 'l2_leaf_reg': 1.1912568427873744}
-   - 0.9825979796769116 - {'learning_rate': 0.13729598218654218, 'depth': 10, 'l2_leaf_reg': 1.3600113909655966}
-   - 0.9819134704647062 - {'learning_rate': 0.08457584692887682, 'depth': 10, 'l2_leaf_reg': 1.9359795254566103}
 2. **training_data_generation.py**:
    - 使用 ADASYN(邊界), SMOTE(均勻) 生成正樣本 + Tomek Links 下採樣
    - 
 ## 結果分析
-1.  **使用ADASYN+SMOTE+TomekLinks到catboost_classifier預測82個正樣本**:
+Precision =\cfrac{TP}{TP+FP}
+Recall =\cfrac{TP}{TP+FN}
+### 使用ADASYN+SMOTE+TomekLinks 生成資料
+1.  **catboost_classifier預測82個正樣本**:
    - 使用參數{'learning_rate': 0.147296968768365, 'depth': 14, 'l2_leaf_reg': 2.144381755329559}
    - 預測結果：Precision 0.9512 , Recall 0.4432
-   - 預測正樣本僅錯2個，代表catboost classifier很謹慎。下一步可結合其他模型增加預測正樣本數，或是篩選出FP。
-   - 
+   - 預測正樣本約錯4個，可容許範圍內。下一步可結合其他模型增加預測正樣本數，或是篩選出FP。
+
+2.  **使用Classifier(Catboost,LGBMBoost,XGBoost)個別預測取交集，預測68個正樣本**
+   - 預測結果：Precision 1 , Recall 0.3864
+   - 預測正樣本全對，可以針對此結果進一步加強最後模型權重。
+     
+3.  **上一個方法取聯集，預測113個正樣本**
+   - 預測結果：Precision 0.9558 , Recall 0.6136
+   - 預測正樣本約錯5個，LGBM(98)與 XGB(95)預測比 Catboost更精準，且有微小差異性(相較1.都再多抓1X個）。可 以此為基準，繼續增加差異性(個別擅長範圍)，或用其他方法抓更多正樣本做篩選。
+     
 ## 下一步建議
 
