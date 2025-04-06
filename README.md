@@ -15,9 +15,10 @@
 1. **catboost_classifier_gpu_model.py**:
    - 使用 GPU 進行 optuna 選參，218個features 單次 trail 須跑3~4分鐘；depth=10的情況下，VRAM約為6G，以下為當前最好三組參數。預測正樣本約為80-100。
    - 0.9827961505953834 - {'learning_rate': 0.19985445314053876, 'depth': 10, 'l2_leaf_reg': 1.1912568427873744}
+   
 2. **training_data_generation.py**:
    - 使用 ADASYN(邊界), SMOTE(均勻) 生成正樣本 + Tomek Links 下採樣
-   - 
+   
 ## 結果分析
 Precision =\cfrac{TP}{TP+FP}
 Recall =\cfrac{TP}{TP+FN}
@@ -36,4 +37,5 @@ Recall =\cfrac{TP}{TP+FN}
    - 預測正樣本約錯5個，LGBM(98)與 XGB(95)預測比 Catboost更精準，且有微小差異性(相較1.都再多抓1X個）。可 以此為基準，繼續增加差異性(個別擅長範圍)，或用其他方法抓更多正樣本做篩選。
      
 ## 下一步建議
+- 218個特徵使用分類的Boost目前上限應該為0.75，可以增加資料多樣性(更多特徵、特徵轉換 或 不同採樣方法)提高結果。
 
