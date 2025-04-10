@@ -1,0 +1,8 @@
+selected_training1.csv --> 使用 selected_features8 聯集特徵數: 218， ADASYN(4000) + SMOTE(14000) + Tomek(14000) 
+selected_training2.csv --> 使用 selected_features8 聯集特徵數: 218， SMOTE(1:1) + Tomek(majority) 後 正 : 負 樣本數 199394:199393 (原git)
+selected_training3.csv --> 使用 selected_features8 聯集特徵數: 218， SMOTE(1:1) + Tomek(auto) 後 正 : 負 樣本數 199394:199393 -> 訓練出的結果，大部分與上一個重複
+selected_training4.csv --> 使用 selected_features8 聯集特徵數: 218， ADASYN(1:1) + Tomek(majority)
+selected_training5.csv --> 使用 selected_features8 聯集特徵數: 218， Borderline(1:1) + Tomek(majority)
+selected_training6.csv --> 使用 selected_features8 聯集特徵數: 218， SVMSMOTE(1:1) + Tomek(majority)
+selected_training7.csv --> 使用 selected_features8 聯集特徵數: 218， KMeansSMOTE(1:1) + Tomek(majority)
+
