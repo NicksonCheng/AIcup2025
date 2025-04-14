@@ -15,9 +15,12 @@
 1. **catboost_classifier_gpu_model.py**:
    - 使用 GPU 進行 optuna 選參，218個features 單次 trail 須跑3~4分鐘；depth=10的情況下，VRAM約為6G，以下為當前最好三組參數。預測正樣本約為80-100。
    - 0.9827961505953834 - {'learning_rate': 0.19985445314053876, 'depth': 10, 'l2_leaf_reg': 1.1912568427873744}
-   
-2. **training_data_generation.py**:
-   - 使用 ADASYN(邊界), SMOTE(均勻) 生成正樣本 + Tomek Links 下採樣
+
+2. **submission_cat.py**:
+   - 將 Public, Private 結果cat一起輸出
+   - 
+3. **training_data_generationX.py**:
+   - 使用 不同方法(訓練集描述.txt) 生成正樣本 + Tomek Links 下採樣
    
 ## 結果分析
 Precision =\cfrac{TP}{TP+FP}
