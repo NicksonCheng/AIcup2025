@@ -1,0 +1,7 @@
+Loading training data...
+Training data shape: (208634, 69), Base features: 67
+Memory Usage: 0.41 GB
+Wavelet indices - RSI: 12, FII: 11
+Wavelet RSI shape: (208634, 20), Wavelet FII shape: (208634, 20)
+Transformed feature count: 107
+Scaler trained on 107 features, saved to output/robust_scaler.joblib
